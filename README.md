@@ -33,6 +33,14 @@ Projeto prático: AWS Cloud Architecting
 
 ## Segurança na AWS
 
+### Identity Based Policy
+
+Políticas associadas diretamente a usuários, grupos ou roles dentro do IAM Policies. Definem permissões específicas para identidades, controlando o que cada usuário pode acessar ou modificar na AWS.
+
+### Determinação de Permissões (Deny)
+
+Ao avaliar permissões no momento da requisição, se houver qualquer política com "Deny" explícito, a ação é negada, independentemente de outras permissões "Allow". O "Deny" sempre prevalece.
+
 - **Modelo de responsabilidade compartilhada:** AWS x Cliente
 - **IaaS, PaaS, SaaS:** níveis de responsabilidade
 - **Princípios de segurança:**
@@ -110,6 +118,18 @@ Projeto prático: AWS Cloud Architecting
 - **Fargate:** Serverless para containers
 
 ### VPS
+
+- **LightSail:** VPS simplificado
+
+## **Virtual Private Server (VPS):** servidor virtual compartilhado, onde múltiplos usuários utilizam recursos isolados em um mesmo hardware físico. Exemplo: LightSail (AWS).
+
+## Conceitos e Comandos Úteis
+
+- **ps ax:** comando Linux para listar todos os processos/programas em execução no sistema.
+
+- **Isolamento Lógico na AWS:**
+
+  - A AWS utiliza camadas de isolamento lógico, como Cloud, Região e VPC (Virtual Private Cloud), para garantir separação, segurança e controle de recursos entre diferentes ambientes e clientes.
 
 - **LightSail:** VPS simplificado
 
