@@ -33,6 +33,10 @@ Projeto prático: AWS Cloud Architecting
 
 ## Segurança na AWS
 
+### Resource Based Policy
+
+Políticas associadas diretamente a recursos (ex: buckets S3, filas SQS), permitindo definir quem pode acessar ou modificar aquele recurso, independente da identidade do usuário. Exemplo: política de acesso público ou restrito em um bucket S3.
+
 ### Identity Based Policy
 
 Políticas associadas diretamente a usuários, grupos ou roles dentro do IAM Policies. Definem permissões específicas para identidades, controlando o que cada usuário pode acessar ou modificar na AWS.
@@ -109,8 +113,50 @@ Ao avaliar permissões no momento da requisição, se houver qualquer política 
 ### EC2 (Elastic Compute Cloud)
 
 - **Máquinas virtuais** (VMs), escalabilidade vertical/horizontal, tipos de instância, AMI, SSH
+
+* **Máquinas virtuais** (VMs), escalabilidade vertical/horizontal, tipos de instância (Linux e Windows), AMI, SSH
+
+- **Máquinas virtuais** (VMs), escalabilidade vertical/horizontal, tipos de instância, AMI, SSH
 - **Modelos de preço:** On-demand, Reserved, Spot, Savings Plans
 - **Placement Groups:** Cluster (alta performance), Spread (alta disponibilidade), Partition (meio termo)
+
+### Acesso via SSH
+
+## Permite acessar e administrar instâncias EC2 de forma segura, utilizando chaves públicas/privadas. Fundamental para operações em servidores Linux e também possível em instâncias Windows (via RDP ou SSH, se habilitado).
+
+## Labs e Exercícios
+
+- [Module 2 Knowledge Check (IAM)](https://awsacademy.instructure.com/courses/113113/assignments/1270651?module_item_id=10653588)
+- [Guided Lab: Exploring AWS Identity and Access Management (IAM)](https://awsacademy.instructure.com/courses/113113/assignments/1270605?module_item_id=10653616)
+- [Module 3 Knowledge Check](https://awsacademy.instructure.com/courses/113113/assignments/1270652?module_item_id=10653624)
+- [Lab: Creating a Static Website for the Cafe (S3)](https://awsacademy.instructure.com/courses/129676/assignments/1485129?module_item_id=12389220)
+- [Guided lab: Introducing Amazon Elastic File System (Amazon EFS)](https://awsacademy.instructure.com/courses/129676/assignments/1485164?module_item_id=12389242)
+
+---
+
+## Exemplo de configuração de ambiente Python no VSCode
+
+Arquivo `.vscode/launch.json` para rodar scripts Python com variáveis de ambiente AWS:
+
+```json
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Python: Current File",
+      "type": "python",
+      "request": "launch",
+      "program": "${file}",
+      "console": "integratedTerminal",
+      "env": {
+        "AWS_ACCESS_KEY_ID": "",
+        "AWS_SECRET_ACCESS_KEY": ""
+      },
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}
+```
 
 ### Containers
 
@@ -172,6 +218,11 @@ pip install -r requirements.txt
 ---
 
 ## Links úteis
+
+- [AWS Well-Architected Framework](https://aws.amazon.com/pt/architecture/well-architected/)
+- [AWS CANVAS](https://awsacademy.instructure.com/courses/129676)
+
+* [Repositório da turma](#)
 
 - [AWS Well-Architected Framework](https://aws.amazon.com/pt/architecture/well-architected/)
 - [AWS CANVAS](https://awsacademy.instructure.com/courses/129676)
