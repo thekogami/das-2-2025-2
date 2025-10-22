@@ -248,3 +248,32 @@ pip install -r requirements.txt
     - Security Group
       - Taggeia os pacotes, caso a conexão seja feita
       - statefull
+
+-22/10/2025
+
+-route 53 routing policies:
+
+  - Simple routing policy: uma única resposta para cada consulta DNS.
+  - Weighted routing policy: distribui o tráfego entre várias instâncias com base em pesos definidos.
+  - Latency routing policy: direciona o tráfego para a região com menor latência.
+  - Failover routing policy: redireciona o tráfego para uma instância de backup em caso de falha.
+  - Geolocation routing policy: direciona o tráfego com base na localização geográfica do usuário.
+  - Geoproximity routing policy (with traffic bias): semelhante à geolocation, mas permite ajustar o tráfego com base na proximidade.
+  - Multi-value answer routing policy: permite retornar várias respostas para uma única consulta DNS.
+
+- route 53 public and private hosted zones:
+
+  - public hosted zone: gerencia o tráfego DNS para um domínio acessível publicamente na internet.
+   record sets:
+      record types:
+    - A (Address) record: mapeia um nome de domínio para um endereço IPv4.
+    - AAAA record: mapeia um nome de domínio para um endereço IPv6.
+    - CNAME (Canonical Name) record: mapeia um nome de domínio para outro nome de domínio.
+    - MX (Mail Exchange) record: especifica os servidores de e-mail responsáveis por receber e-mails para o domínio.
+    - TXT (Text) record: armazena informações de texto, frequentemente usado para verificação de domínio e políticas de e-mail.
+    - NS (Name Server) record: especifica os servidores DNS autoritativos para o domínio.
+    - SRV (Service) record: define a localização de serviços específicos, como servidores SIP ou LDAP.
+    - PTR (Pointer) record: usado para mapeamento reverso, associando um endereço IP a um nome de domínio.
+
+  - private hosted zone: gerencia o tráfego DNS para um domínio acessível apenas dentro de uma VPC (Virtual Private Cloud).
+
