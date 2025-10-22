@@ -277,3 +277,18 @@ pip install -r requirements.txt
 
   - private hosted zone: gerencia o tráfego DNS para um domínio acessível apenas dentro de uma VPC (Virtual Private Cloud).
 
+- Automating your architecture
+
+  - IaC overview
+      - IaC benefits
+        Template (json, yaml): stack1, 2 e 3, tem como configurar no git(gitops)
+
+  AWS IaC services that use CloudFormation:
+  AWS CloudFormation:
+    - Aws Elastic Beanstalk (pé de feijao) (((( bastante importante))))
+    - AWS quick starts
+    - AWS serverless application model (aws sam)   (((( bastante importante))))
+    - AWS Amplify
+    - AWS Cloud development Kit (AWS CDK)
+
+- Amazon Q developer: 
