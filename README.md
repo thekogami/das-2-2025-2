@@ -228,44 +228,46 @@ pip install -r requirements.txt
 - [AWS CANVAS](https://awsacademy.instructure.com/courses/129676)
 
 ---
+
 ## 24/09 - creating a network environment
 
-  - VPC
-    - Subnet
-      - Privada (FileShare, DB etc)
-        - Totalmente isolada
-        - NAT (Network Address Translator) Gateway
-          - EC2(Subnet Privada) -> private subnet route 
+- VPC
+  - Subnet
+    - Privada (FileShare, DB etc)
+      - Totalmente isolada
+      - NAT (Network Address Translator) Gateway
+        - EC2(Subnet Privada) -> private subnet route
           table -> NAT Gateway (Subnet publica) -> public subnet route table -> internet gateway
-      - Publica
-        - Conecta com ‘internet’ via `internet gateway` (NAT Gateway)
-        - Necessita de um IP publico (elastic IP - ip elástico)
-  - Firewall
-    - Porta -> Recurso do sistema operacional que permite que um programa faça requisições para ‘internet’ 
-    - Proteção de rede
-    - Network Access Control List (NACL)
-      - Estatico e stateless
-    - Security Group
-      - Taggeia os pacotes, caso a conexão seja feita
-      - statefull
+    - Publica
+      - Conecta com ‘internet’ via `internet gateway` (NAT Gateway)
+      - Necessita de um IP publico (elastic IP - ip elástico)
+- Firewall
+  - Porta -> Recurso do sistema operacional que permite que um programa faça requisições para ‘internet’
+  - Proteção de rede
+  - Network Access Control List (NACL)
+    - Estatico e stateless
+  - Security Group
+    - Taggeia os pacotes, caso a conexão seja feita
+    - statefull
 
 -22/10/2025
 
 -route 53 routing policies:
 
-  - Simple routing policy: uma única resposta para cada consulta DNS.
-  - Weighted routing policy: distribui o tráfego entre várias instâncias com base em pesos definidos.
-  - Latency routing policy: direciona o tráfego para a região com menor latência.
-  - Failover routing policy: redireciona o tráfego para uma instância de backup em caso de falha.
-  - Geolocation routing policy: direciona o tráfego com base na localização geográfica do usuário.
-  - Geoproximity routing policy (with traffic bias): semelhante à geolocation, mas permite ajustar o tráfego com base na proximidade.
-  - Multi-value answer routing policy: permite retornar várias respostas para uma única consulta DNS.
+- Simple routing policy: uma única resposta para cada consulta DNS.
+- Weighted routing policy: distribui o tráfego entre várias instâncias com base em pesos definidos.
+- Latency routing policy: direciona o tráfego para a região com menor latência.
+- Failover routing policy: redireciona o tráfego para uma instância de backup em caso de falha.
+- Geolocation routing policy: direciona o tráfego com base na localização geográfica do usuário.
+- Geoproximity routing policy (with traffic bias): semelhante à geolocation, mas permite ajustar o tráfego com base na proximidade.
+- Multi-value answer routing policy: permite retornar várias respostas para uma única consulta DNS.
 
 - route 53 public and private hosted zones:
 
   - public hosted zone: gerencia o tráfego DNS para um domínio acessível publicamente na internet.
-   record sets:
-      record types:
+    record sets:
+    record types:
+
     - A (Address) record: mapeia um nome de domínio para um endereço IPv4.
     - AAAA record: mapeia um nome de domínio para um endereço IPv6.
     - CNAME (Canonical Name) record: mapeia um nome de domínio para outro nome de domínio.
@@ -280,15 +282,20 @@ pip install -r requirements.txt
 - Automating your architecture
 
   - IaC overview
-      - IaC benefits
-        Template (json, yaml): stack1, 2 e 3, tem como configurar no git(gitops)
+    - IaC benefits
+      Template (json, yaml): stack1, 2 e 3, tem como configurar no git(gitops)
 
   AWS IaC services that use CloudFormation:
   AWS CloudFormation:
-    - Aws Elastic Beanstalk (pé de feijao) (((( bastante importante))))
-    - AWS quick starts
-    - AWS serverless application model (aws sam)   (((( bastante importante))))
-    - AWS Amplify
-    - AWS Cloud development Kit (AWS CDK)
 
-- Amazon Q developer: 
+  - Aws Elastic Beanstalk (pé de feijao) (((( bastante importante))))
+  - AWS quick starts
+  - AWS serverless application model (aws sam) (((( bastante importante))))
+  - AWS Amplify
+  - AWS Cloud development Kit (AWS CDK)
+
+- 29/10/2025
+
+  - Caching strategies:
+    Lazy Loading:
+    Write-through:
