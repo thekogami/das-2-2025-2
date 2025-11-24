@@ -294,8 +294,51 @@ pip install -r requirements.txt
   - AWS Amplify
   - AWS Cloud development Kit (AWS CDK)
 
-- 29/10/2025
+## Aula 29/10
+- Caching content
+    - Cache Estático (CloudFront) -> pega conteúdo da edge location mais próxima
+    - Cache Dinâmico / Banco de Dados -> pega conteúdo de uma camada de banco de dados em memória
+    - Caching com Cloudfront
+        - Content Delivery Network -> rede global de servidores para entregar serviços comumente acessados
+        - Cache principalmente de: Imagens, html css e js, vídeos
+        - Provê uma camada com cache para evitar realizar consultas diretas com a AWS
+        - User -> Edge Location -> edge cache regional -> origem
+        - Permite a maior parte do caminho ser feita dentro da rede da aws
+        - TTL do cache do cloudfront é 24h, mas esse valor é configurável
+        - Mitigação de DDoS integrada
+    - ElastiCache
+        - Ideal para acelerar suas consultas de banco
+        - Colocado em uma camada na frente do banco
+        - Memcahed -> chave valor, alta performance, básico
+        - Redis -> escreve em disco, suporta tipos de dados complexos, publish/subscribe, ordenaçãoe ranqueamento
+        - Valkey -> fork do Redis antes dele ficar pago
+        - Lazy loading -> busca informação no cache, se não tiver, procura na camada sucessiva
+        - Write through -> escreve no BD e depois atualiza o cache.
 
-  - Caching strategies:
-    Lazy Loading:
-    Write-through:
+## Aula 12/11
+- Serverless
+    - Lambda (compute), fargate, cognito, amplify, cloudfront, api gateway, appsync, sns, sqs, eventbridge, functions, s3, efs, neptune, dynamodb, aurora, redshift, opensearch
+    - Microsserviços
+    - Lambda
+        - Serviço computacional serverless
+        - Limite de 15 min
+        - Limite de 10gb de memória
+        - Funciona com base de uma micro vm gerada com o firecracker
+        - A lambda se integra com sua rede (vpc)
+        - Lambda@Edge: dentro do cloudfront, permite configurar requisições antes de entregá-las
+        - Processamento síncrono (api) e assíncrono (eventos) e streaming
+    - Contâiner
+        - Elastic Container Registry, Elastic Container Service, Elastic Kubernetes Service
+    - Fargate
+        - Abstrai as complexidades do docker
+        - Cria a imagem no ecr -> ECS: cluster task definition-> ECS: cria a task ou serviço (conjunto de tasks) -> Fargate: Container
+        - ECR: imagem -> EKS: PodSpec -> Fargate: Pod com contâineres -> EKS: Service
+        - ECS: Simplicidade, EKS: Complexo
+    - Step Function
+        - Serverless workflow
+        - Low code, no code
+    - API Gateway
+        - Na frente da API
+        - Expõe o API gateway para conectar ao backend
+        - REST, Http e Web Socket
+      
